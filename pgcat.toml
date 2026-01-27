@@ -1,0 +1,164 @@
+# PgCat Configuration for SMSLY Platform
+# High-performance PostgreSQL connection pooler with SCRAM-SHA-256 support
+
+[general]
+# Host to bind to
+host = "0.0.0.0"
+port = 5432
+
+# Admin database for stats
+admin_username = "admin"
+admin_password = "admin_password_change_me"
+
+# Connection timeout in milliseconds
+connect_timeout = 5000
+idle_timeout = 30000
+
+# Logging
+log_client_connections = true
+log_client_disconnections = true
+
+# TLS (disabled for internal traffic)
+tls_certificate = ""
+tls_private_key = ""
+
+# Number of worker threads
+worker_threads = 4
+
+# Stats collection
+autoreload = 15000
+
+[pools.smsly]
+# Pool mode: session, transaction, or statement
+pool_mode = "transaction"
+
+# Load balancing mode: random, round_robin, or loc
+load_balancing_mode = "random"
+
+# Default role applied to all queries
+default_role = "primary"
+
+# Query parser (for read/write splitting)
+query_parser_enabled = false
+
+# Sharding disabled (single database)
+sharding_function = "pg_bigint_hash"
+automatic_sharding_key = ""
+
+# Connection pool settings
+pool_size = 50
+min_pool_size = 5
+
+# Users allowed to connect
+[[pools.smsly.users]]
+username = "postgres"
+password = "Sm5Ly2026ProdDB9xKmNv"
+pool_size = 50
+
+# Primary server
+[[pools.smsly.shards]]
+servers = [
+    ["postgres", 5432, "primary"]
+]
+database = "smsly_backend"
+
+# Additional database pools
+[pools.smsly_audit]
+pool_mode = "transaction"
+load_balancing_mode = "random"
+default_role = "primary"
+query_parser_enabled = false
+sharding_function = "pg_bigint_hash"
+pool_size = 20
+min_pool_size = 2
+
+[[pools.smsly_audit.users]]
+username = "postgres"
+password = "Sm5Ly2026ProdDB9xKmNv"
+pool_size = 20
+
+[[pools.smsly_audit.shards]]
+servers = [
+    ["postgres", 5432, "primary"]
+]
+database = "smsly_audit"
+
+[pools.smsly_txchain]
+pool_mode = "transaction"
+load_balancing_mode = "random"
+default_role = "primary"
+query_parser_enabled = false
+sharding_function = "pg_bigint_hash"
+pool_size = 30
+min_pool_size = 3
+
+[[pools.smsly_txchain.users]]
+username = "postgres"
+password = "Sm5Ly2026ProdDB9xKmNv"
+pool_size = 30
+
+[[pools.smsly_txchain.shards]]
+servers = [
+    ["postgres", 5432, "primary"]
+]
+database = "smsly_txchain"
+
+[pools.smsly_identity]
+pool_mode = "transaction"
+load_balancing_mode = "random"
+default_role = "primary"
+query_parser_enabled = false
+sharding_function = "pg_bigint_hash"
+pool_size = 30
+min_pool_size = 3
+
+[[pools.smsly_identity.users]]
+username = "postgres"
+password = "Sm5Ly2026ProdDB9xKmNv"
+pool_size = 30
+
+[[pools.smsly_identity.shards]]
+servers = [
+    ["postgres", 5432, "primary"]
+]
+database = "smsly_identity"
+
+[pools.smsly_platform]
+pool_mode = "transaction"
+load_balancing_mode = "random"
+default_role = "primary"
+query_parser_enabled = false
+sharding_function = "pg_bigint_hash"
+pool_size = 40
+min_pool_size = 5
+
+[[pools.smsly_platform.users]]
+username = "postgres"
+password = "Sm5Ly2026ProdDB9xKmNv"
+pool_size = 40
+
+[[pools.smsly_platform.shards]]
+servers = [
+    ["postgres", 5432, "primary"]
+]
+database = "smsly_platform"
+
+[pools.smsly_policy]
+pool_mode = "transaction"
+load_balancing_mode = "random"
+default_role = "primary"
+query_parser_enabled = false
+sharding_function = "pg_bigint_hash"
+pool_size = 20
+min_pool_size = 2
+
+[[pools.smsly_policy.users]]
+username = "postgres"
+password = "Sm5Ly2026ProdDB9xKmNv"
+pool_size = 20
+
+[[pools.smsly_policy.shards]]
+servers = [
+    ["postgres", 5432, "primary"]
+]
+database = "smsly_policy"
