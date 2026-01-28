@@ -126,3 +126,22 @@ pool_size = 20
 [pools.smsly_policy.shards.0]
 servers = [["os4wks048wg8ckkcgo44gsw0", 5432, "primary"]]
 database = "smsly_policy"
+
+# Gateway database
+[pools.smsly_gateway]
+pool_mode = "transaction"
+load_balancing_mode = "random"
+default_role = "primary"
+query_parser_enabled = false
+sharding_function = "pg_bigint_hash"
+pool_size = 30
+min_pool_size = 3
+
+[pools.smsly_gateway.users.0]
+username = "postgres"
+password = "Sm5Ly2026ProdDB9xKmNv"
+pool_size = 30
+
+[pools.smsly_gateway.shards.0]
+servers = [["os4wks048wg8ckkcgo44gsw0", 5432, "primary"]]
+database = "smsly_gateway"
