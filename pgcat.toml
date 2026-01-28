@@ -29,7 +29,7 @@ password = "Sm5Ly2026ProdDB9xKmNv"
 pool_size = 50
 
 [pools.smsly_backend.shards.0]
-servers = [["postgres", 5432, "primary"]]
+servers = [["os4wks048wg8ckkcgo44gsw0", 5432, "primary"]]
 database = "smsly_backend"
 
 # Audit database
@@ -48,7 +48,7 @@ password = "Sm5Ly2026ProdDB9xKmNv"
 pool_size = 20
 
 [pools.smsly_audit.shards.0]
-servers = [["postgres", 5432, "primary"]]
+servers = [["os4wks048wg8ckkcgo44gsw0", 5432, "primary"]]
 database = "smsly_audit"
 
 # Txchain database
@@ -67,7 +67,7 @@ password = "Sm5Ly2026ProdDB9xKmNv"
 pool_size = 30
 
 [pools.smsly_txchain.shards.0]
-servers = [["postgres", 5432, "primary"]]
+servers = [["os4wks048wg8ckkcgo44gsw0", 5432, "primary"]]
 database = "smsly_txchain"
 
 # Identity database
@@ -86,7 +86,7 @@ password = "Sm5Ly2026ProdDB9xKmNv"
 pool_size = 30
 
 [pools.smsly_identity.shards.0]
-servers = [["postgres", 5432, "primary"]]
+servers = [["os4wks048wg8ckkcgo44gsw0", 5432, "primary"]]
 database = "smsly_identity"
 
 # Platform database
@@ -105,7 +105,7 @@ password = "Sm5Ly2026ProdDB9xKmNv"
 pool_size = 40
 
 [pools.smsly_platform.shards.0]
-servers = [["postgres", 5432, "primary"]]
+servers = [["os4wks048wg8ckkcgo44gsw0", 5432, "primary"]]
 database = "smsly_platform"
 
 # Policy database
@@ -124,5 +124,5 @@ password = "Sm5Ly2026ProdDB9xKmNv"
 pool_size = 20
 
 [pools.smsly_policy.shards.0]
-servers = [["postgres", 5432, "primary"]]
+servers = [["os4wks048wg8ckkcgo44gsw0", 5432, "primary"]]
 database = "smsly_policy"
